@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Tic Tac Toe</title>
+    </head>
+    <body>
+        <div style="background-color: black; color: white; display: flex; align-items: center; justify-content: center;">
+            <p style="margin: 0px;">
+                <strong>This is a study project of Usama Abdul Moeed</strong>
+            </p>
+        </div>
+        <div style="text-align: center;">
+            <h1 style="color:black;">Tic Tac Toe</h1>
+        </div>
+        <div style="text-align: center;">
+            <input id="player1" type="text" placeholder="Player 1">
+            <input id="player2" type="text" placeholder="Player 2">
+        </div>
+        <div style="text-align: center; color: red;">
+            <h4>Just write players' names and start playing</h4>
+            <h4>Player 1 takes the first turn</h4>
+        </div>
+        <div>
+            <br>
+        </div>
+        <div style="text-align: center;">
+            <div><button id="a" class="button">.</button><button id="b" class="button">.</button><button id="c" class="button">.</button></div>
+            <div><button id="d" class="button">.</button><button id="e" class="button">.</button><button id="f" class="button">.</button></div>
+            <div><button id="g" class="button">.</button><button id="h" class="button">.</button><button id="i" class="button">.</button></div>
+        </div>
+        <div style="text-align: center;">
+            <h3 id="result" style="color: darkgreen;"></h3>
+        </div>
+        <div>
+            <br>
+        </div>
+        <div style="text-align: center;">
+            <button onclick="reload()">New Game</button>
+        </div>
+        <script>
+            const buttons = document.querySelectorAll(".button");
+            let changer = 0
+            for(let i = 0; i < 9; i++){
+                buttons[i].addEventListener("click", function(){
+                    if (changer == 0 || changer == 2 || changer == 4 || changer == 6 || changer == 8){
+                        buttons[i].innerHTML = "o"
+                        changer++
+                        check()
+                    }
+                    else if (changer == 1 || changer == 3 || changer == 5 || changer == 7){
+                        buttons[i].innerHTML = "x"
+                        changer++
+                        check()
+                    }
+                })
+            }
+            function check() {
+                button1 = document.querySelector("#a")
+                button2 = document.querySelector("#b")
+                button3 = document.querySelector("#c")
+                button4 = document.querySelector("#d")
+                button5 = document.querySelector("#e")
+                button6 = document.querySelector("#f")
+                button7 = document.querySelector("#g")
+                button8 = document.querySelector("#h")
+                button9 = document.querySelector("#i")
+
+                result = document.querySelector("#result")
+
+                player1 = document.querySelector("#player1")
+                player1Name = player1.value
+
+                player2 = document.querySelector("#player2")
+                player2Name = player2.value
+
+
+                if (button1.innerHTML == "o" && button2.innerHTML == "o" && button3.innerHTML == "o"){
+                    result.innerHTML = "Winner: " + player1Name
+                }
+                
+                if (button4.innerHTML == "o" && button5.innerHTML == "o" && button6.innerHTML == "o"){
+                    result.innerHTML = "Winner: " + player1Name
+                }
+                if (button7.innerHTML == "o" && button8.innerHTML == "o" && button9.innerHTML == "o"){
+                    result.innerHTML = "Winner: " + player1Name
+                }
+                if (button1.innerHTML == "o" && button4.innerHTML == "o" && button7.innerHTML == "o"){
+                    result.innerHTML = "Winner: " + player1Name
+                }
+                if (button2.innerHTML == "o" && button5.innerHTML == "o" && button8.innerHTML == "o"){
+                    result.innerHTML = "Winner: " + player1Name
+                }
+                if (button3.innerHTML == "o" && button6.innerHTML == "o" && button9.innerHTML == "o"){
+                    result.innerHTML = "Winner: " + player1Name
+                }
+                if (button1.innerHTML == "o" && button5.innerHTML == "o" && button9.innerHTML == "o"){
+                    result.innerHTML = "Winner: " + player1Name
+                }
+                if (button3.innerHTML == "o" && button5.innerHTML == "o" && button7.innerHTML == "o"){
+                    result.innerHTML = "Winner: " + player1Name
+                }
+
+
+
+                if (button1.innerHTML == "x" && button2.innerHTML == "x" && button3.innerHTML == "x"){
+                    result.innerHTML = "Winner: " + player2Name
+                }
+                
+                if (button4.innerHTML == "x" && button5.innerHTML == "x" && button6.innerHTML == "x"){
+                    result.innerHTML = "Winner: " + player2Name
+                }
+                if (button7.innerHTML == "x" && button8.innerHTML == "x" && button9.innerHTML == "x"){
+                    result.innerHTML = "Winner: " + player2Name
+                }
+                if (button1.innerHTML == "x" && button4.innerHTML == "x" && button7.innerHTML == "x"){
+                    result.innerHTML = "Winner: " + player2Name
+                }
+                if (button2.innerHTML == "x" && button5.innerHTML == "x" && button8.innerHTML == "x"){
+                    result.innerHTML = "Winner: " + player2Name
+                }
+                if (button3.innerHTML == "x" && button6.innerHTML == "x" && button9.innerHTML == "x"){
+                    result.innerHTML = "Winner: " + player2Name
+                }
+                if (button1.innerHTML == "x" && button5.innerHTML == "x" && button9.innerHTML == "x"){
+                    result.innerHTML = "Winner: " + player2Name
+                }
+                if (button3.innerHTML == "x" && button5.innerHTML == "x" && button7.innerHTML == "x"){
+                    result.innerHTML = "Winner: " + player2Name
+                }
+                if ((button1.innerHTML == "o" || button1.innerHTML == "x") && (button2.innerHTML == "o" || button2.innerHTML == "x") && (button3.innerHTML == "o" || button3.innerHTML == "x") && (button4.innerHTML == "o" || button4.innerHTML == "x") && (button5.innerHTML == "o" || button5.innerHTML == "x") && (button6.innerHTML == "o" || button6.innerHTML == "x") && (button7.innerHTML == "o" || button7.innerHTML == "x") && (button8.innerHTML == "o" || button8.innerHTML == "x") && (button9.innerHTML == "o" || button9.innerHTML == "x")){
+                    result.innerHTML = "Draw"
+                }
+
+                return 0
+            }
+
+            function reload(){
+                location.reload()
+            }
+        </script>
+    </body>
+</html>
